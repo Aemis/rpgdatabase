@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:decorate template="../template/base.xhtml">
+        <ui:define name="nome-tela">Arquivos Sincronizados</ui:define>
+        <ui:define name="conteudo-tela">
+            <h:form id="formListagemArquivo">
+                <p:dataTable var="file" value="#{arquivoMng.listaArquivos}">
+                    <p:column headerText="Código" width="50" styleClass="centralizar">
+                        <h:outputText value="#{file.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{file.nome}"/>
+                    </p:column>
+                    <p:column headerText="Tamanho">
+                        <h:outputText value="#{file.tamanho}"/>
+                    </p:column>
+                    <p:column headerText="Modificado em">
+                        <h:outputText value="#{formatador.formatarDataHora(file.dataHora)}"/>
+                    </p:column>
+                    <p:column headerText="Local Origem">
+                        <h:outputText value="#{file.caminhoOrigem}"/>
+                    </p:column>
+                    <p:column headerText="Total Linhas">
+                        <h:outputText value="#{file.qtdLinhas}"/>
+                    </p:column>
+                    <p:column headerText="Último Interno">
+                        <h:outputText value="#{file.ultimaLinhaLida}"/>
+                    </p:column>
+                    <p:column headerText="Recebido em">
+                        <h:outputText value="#{formatador.formatarDataHora(file.entradaDataHora)}"/>
+                    </p:column>
+                    <p:column headerText="Gravado em">
+                        <h:outputText value="#{formatador.formatarDataHora(file.gravacaoDataHora)}"/>
+                    </p:column>
+                    <p:column headerText="Finalizado em">
+                        <h:outputText value="#{formatador.formatarDataHora(file.finalizacaoDataHora)}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:decorate>
+</html>

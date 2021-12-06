@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    lang="pt-br"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:body>
+        <h:form id="formMenuUsuario">
+        <div id="titulo" class="fundo-titulo"> 
+            <div class="conteudo-centralizado">
+                <div id="barraStatus" class="esquerda">
+                    <h1 class="titulo clicavel">RPGDatabase</h1>
+                </div>
+                <div id="menuUsuario" class="direita">
+                    <spam class="clicavel"><p:commandLink class="clicavel" action="#{usuarioMng.getPaginaAlterarBarraMenu()}" value="#{loginMng.sessao.usuarioLogado.nome}"/></spam>
+                    <spam class="clicavel"><p:commandLink class="clicavel" action="#{loginMng.encerrarSessao()}" value="Sair"/></spam>
+                </div>
+            </div>
+        </div>
+        </h:form>
+    </h:body>
+</html>
+ 

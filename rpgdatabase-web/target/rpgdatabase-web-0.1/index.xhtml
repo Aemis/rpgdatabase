@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>RPG Database</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" ></link>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great" rel="stylesheet"> </link>
+        <style>
+            .ui-panelgrid .ui-panelgrid-cell{
+                border-width: 0px;
+            }
+            .ui-widget-content{
+                border: 0px;
+            }
+        </style>
+    </h:head>
+
+    <h:body style="margin: 0;padding: 0;font-family: 'Baloo Chettan 2', cursive;font-size: 14pt;text-align: center;">
+        <div style="margin: auto;border: 1px solid #657b9e;background-color: #657b9e;"> 
+            
+            <h1 style="position:inherit; font-family: 'Fredericka the Great', cursive;font-size: 50pt;text-align: center;color: #0f0f0f;"> RPG Database </h1>
+        </div>
+        
+        <h:form id="formLogin">
+            <div style="margin-left: 35%; margin-right: 25%;text-align: center;margin-top: 5%; width: 400px;">
+                <p:messages id="messages" showDetail="true" closable="true" style="height: 15%;">
+                    <p:autoUpdate/>
+                </p:messages>
+                <p:panelGrid columns="2" style="text-algin:center;" >
+                    <p:outputLabel for="lblUsuario" value="Usuário:"/>
+                    <p:inputText value="#{loginMng.usuario}" id="lblUsuario" />
+                    <p:outputLabel for="lblSenha" value="Senha:"/>
+                    <p:password value="#{loginMng.senha}" id="lblSenha" redisplay="true"/>
+                </p:panelGrid>
+            </div>
+            <br/>
+            <p:commandButton action="#{loginMng.login()}" update="messages formLogin" value="Entrar" />
+            
+        </h:form>
+
+    </h:body>
+</html>

@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <ui:decorate template="../template/base.xhtml">
+        <ui:define name="nome-tela">Usuários</ui:define>
+        <ui:define name="conteudo-tela">
+            <h:form id="formListagemUsuario">
+                <p:commandButton value="Novo" action="#{usuarioMng.getPaginaInserir()}"/>
+                <p:dataTable var="user" value="#{usuarioMng.listaUsuario}">
+                    <p:column headerText="Código" width="50" styleClass="centralizar">
+                        <h:outputText value="#{user.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Nome">
+                        <h:outputText value="#{user.nome}"/>
+                    </p:column>
+                    <p:column headerText="E-mail">
+                        <h:outputText value="#{user.email}"/>
+                    </p:column>
+                    <p:column headerText="Dt. Entrada" width="150" styleClass="centralizar">
+                        <h:outputText value="#{formatador.formatarDataHora(user.entrada)}"/>
+                    </p:column>
+                    <p:column headerText="Ativo?" width="50" styleClass="centralizar">
+                        <h:outputText value="#{formatador.formatarBooleano(user.ativo)}"/>
+                    </p:column>
+                    <p:column width="100" styleClass="centralizar">
+                        <p:commandLink action="#{usuarioMng.getPaginaAlterar()}" value="Alterar" >
+                            <f:setPropertyActionListener value="#{user}" target="#{usuarioMng.usuario}" />
+                        </p:commandLink>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:decorate>
+</html>

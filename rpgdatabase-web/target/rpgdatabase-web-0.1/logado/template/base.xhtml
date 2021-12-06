@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    lang="pt-br"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+	
+    <h:head>
+        <meta charset="utf-8"></meta>
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport"></meta>
+        <title>RPG Database: <ui:insert name="nome-tela"/> </title>
+        <h:outputStylesheet name="css/rpgdatabase.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com" ></link>
+        <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2" rel="stylesheet"></link>
+        <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great" rel="stylesheet"> </link>
+    </h:head>
+
+    <h:body>
+        <ui:include src="barra.xhtml"/>
+        <div id="corpo">
+            <div class="conteudo-centralizado enchertela">
+                <ui:include src="menu.xhtml"/>
+                <div id="nometela" class="direita">
+                    <b class="titulotela"><ui:insert name="nome-tela"/></b>
+                </div>
+                <div id="conteudo" class="direita">
+                    <div class="interno">
+                        <ui:insert name="conteudo-tela"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
