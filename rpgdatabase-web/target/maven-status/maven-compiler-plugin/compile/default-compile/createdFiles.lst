@@ -1,6 +1,6 @@
-br/com/lacetecnologia/rpgdatabase/manager/ArquivoManager.class
 br/com/lacetecnologia/rpgdatabase/manager/LoginManager.class
 br/com/lacetecnologia/rpgdatabase/resource/ArquivoResource.class
 br/com/lacetecnologia/rpgdatabase/manager/UsuarioManager.class
 br/com/lacetecnologia/rpgdatabase/seguranca/CustomApp.class
+br/com/lacetecnologia/rpgdatabase/manager/ArquivoManager.class
 br/com/lacetecnologia/rpgdatabase/seguranca/AutenticacaoFiltro.class
