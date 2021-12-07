@@ -75,4 +75,8 @@ public final class ArquivoConfiguracao {
         this.configuracao = configuracao;
     }
     
+    public String getNomeArquivoCfg(){
+        return this.arquivoCfg.getAbsolutePath();
+    }
+    
 }

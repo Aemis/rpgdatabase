@@ -12,8 +12,6 @@ import java.lang.reflect.Method;
 import java.util.Base64;
 import java.util.List;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.security.DenyAll;
 import javax.annotation.security.PermitAll;
 import javax.ejb.EJB;
@@ -75,7 +73,7 @@ public class AutenticacaoFiltro implements ContainerRequestFilter{
             final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");
             final String username = tokenizer.nextToken();
             final String password = tokenizer.nextToken();
-              
+            requestContext.setSecurityContext(new ContextoSeguro(username));
             try {
                 //Is user valid?
                 if( ! fachada.loginPermitido(username, password))

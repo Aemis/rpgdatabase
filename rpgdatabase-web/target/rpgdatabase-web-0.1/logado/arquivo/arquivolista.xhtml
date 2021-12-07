@@ -32,12 +32,7 @@
                     <p:column headerText="Recebido em">
                         <h:outputText value="#{formatador.formatarDataHora(file.entradaDataHora)}"/>
                     </p:column>
-                    <p:column headerText="Gravado em">
-                        <h:outputText value="#{formatador.formatarDataHora(file.gravacaoDataHora)}"/>
-                    </p:column>
-                    <p:column headerText="Finalizado em">
-                        <h:outputText value="#{formatador.formatarDataHora(file.finalizacaoDataHora)}"/>
-                    </p:column>
+                    
                 </p:dataTable>
             </h:form>
         </ui:define>

@@ -1,1 +1,7 @@
+br/com/lacetecnologia/rpgdatabase/cli/comunicacao/ParametroCli.class
+br/com/lacetecnologia/rpgdatabase/cli/ferramenta/ContadorDeLinhas.class
 br/com/lacetecnologia/rpgdatabase/cli/Principal.class
+br/com/lacetecnologia/rpgdatabase/cli/comunicacao/ArquivosCli.class
+br/com/lacetecnologia/rpgdatabase/cli/ferramenta/Mensageria.class
+br/com/lacetecnologia/rpgdatabase/cli/comunicacao/Cliente.class
+br/com/lacetecnologia/rpgdatabase/cli/ArquivoConfiguracao.class
