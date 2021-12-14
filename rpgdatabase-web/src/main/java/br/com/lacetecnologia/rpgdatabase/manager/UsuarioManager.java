@@ -48,7 +48,7 @@ public class UsuarioManager {
     }
     
     public String getPaginaAlterarSenha(){
-        return "/logado/usuario/usuariotrocarsenha.xhtml";
+        return "/logado/usuario/usuariotrocasenha.xhtml";
     }
     
     public String getPaginaAlterarBarraMenu(){

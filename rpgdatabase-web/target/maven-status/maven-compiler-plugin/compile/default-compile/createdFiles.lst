@@ -3,7 +3,9 @@ br/com/lacetecnologia/rpgdatabase/seguranca/ContextoSeguro$1.class
 br/com/lacetecnologia/rpgdatabase/resource/ArquivoResource.class
 br/com/lacetecnologia/rpgdatabase/manager/UsuarioManager.class
 br/com/lacetecnologia/rpgdatabase/seguranca/CustomApp.class
+br/com/lacetecnologia/rpgdatabase/manager/ApelidoManager.class
 br/com/lacetecnologia/rpgdatabase/manager/ArquivoManager.class
 br/com/lacetecnologia/rpgdatabase/resource/ValidadorResource.class
 br/com/lacetecnologia/rpgdatabase/seguranca/ContextoSeguro.class
+br/com/lacetecnologia/rpgdatabase/manager/JogoManager.class
 br/com/lacetecnologia/rpgdatabase/seguranca/AutenticacaoFiltro.class

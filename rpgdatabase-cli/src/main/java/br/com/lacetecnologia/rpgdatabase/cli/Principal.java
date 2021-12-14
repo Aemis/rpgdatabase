@@ -5,6 +5,7 @@ import br.com.lacetecnologia.rpgdatabase.cli.comunicacao.ParametroCli;
 import br.com.lacetecnologia.rpgdatabase.estrutura.RegistrosArquivos;
 import br.com.lacetecnologia.rpgdatabase.cli.ferramenta.Mensageria;
 import br.com.lacetecnologia.rpgdatabase.enumerados.ParametroNome;
+import br.com.lacetecnologia.rpgdatabase.estrutura.ArquivoInserido;
 import br.com.lacetecnologia.rpgdatabase.estrutura.RegistroArquivo;
 import br.com.lacetecnologia.rpgdatabase.ferramenta.Formatador;
 import java.io.BufferedReader;
@@ -57,7 +58,7 @@ public class Principal {
        Principal p = new Principal(); 
     }
 
-    private void verificarPastas() throws IOException, UnsupportedEncodingException, ParseException {
+    private void verificarPastas() throws IOException, UnsupportedEncodingException, ParseException, Exception {
         Mensageria.mostrarMensagemNaTela("Verificando pastas...");
         int numero = 1;
         File pasta;
@@ -70,7 +71,7 @@ public class Principal {
         }
     }
 
-    private void verificarPasta(File pasta) throws UnsupportedEncodingException, IOException, ParseException {
+    private void verificarPasta(File pasta) throws UnsupportedEncodingException, IOException, ParseException, Exception {
         if(pasta.exists() && pasta.isDirectory()){
             for(File arquivo: pasta.listFiles()){
                 if(arquivo.isDirectory()){
@@ -83,10 +84,14 @@ public class Principal {
                         Mensageria.mostrarMensagemNaTela("Identificado arquivo de log!");
                         if(!arquivoExisteNoServidor(arquivo)){
                             Mensageria.mostrarMensagemNaTela("Arquivo não existe no servidor! Cadastrando... ");
-                            if(ArquivosCli.cadastrarArquivo(arquivo)){
-                                Mensageria.mostrarMensagemNaTela("Arquivo cadastrado com sucesso!");
+                            ArquivoInserido ai= ArquivosCli.cadastrarArquivo(arquivo);
+                            if(ai.getInseriu() && !ai.getArquivoExiste() ){
+                                Mensageria.mostrarMensagemNaTela("Novo arquivo: Arquivo cadastrado com sucesso!");
                             }else{
-                                Mensageria.mostrarMensagemNaTela("Houve um erro ao cadastrar o arquivo! Verifique no servidor.");
+                                if(!ai.getInseriu() && ai.getArquivoExiste())
+                                    Mensageria.mostrarMensagemNaTela("Arquivo já existe no servidor.");    
+                                else
+                                    Mensageria.mostrarMensagemNaTela("Houve um erro ao cadastrar o arquivo! Verifique no servidor.");
                             }
                             
                         }

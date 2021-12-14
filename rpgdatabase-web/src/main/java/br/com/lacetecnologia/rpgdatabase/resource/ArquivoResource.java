@@ -45,12 +45,12 @@ public class ArquivoResource {
     }
     
     @POST
-    @Consumes(MediaType.APPLICATION_JSON)        
+    @Consumes(MediaType.APPLICATION_JSON)  
+    @Produces(MediaType.APPLICATION_JSON)
     public Response setArquivo(RegistroArquivo registroArquivo,@Context SecurityContext securityContext){
         try{
             if(registroArquivo != null){
-                fachada.inserir(registroArquivo,securityContext.getUserPrincipal().getName());
-                return Response.status(Response.Status.CREATED).build();
+                return Response.status(Response.Status.CREATED).entity(fachada.inserir(registroArquivo,securityContext.getUserPrincipal().getName())).build();
             }else{
                 return Response.status(Response.Status.BAD_REQUEST).entity(new Erro(400,"Por favor, envie os dados para o arquivo a ser inserido!")).build();
             }

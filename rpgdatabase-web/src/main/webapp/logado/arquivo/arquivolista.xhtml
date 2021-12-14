@@ -7,33 +7,29 @@
         <ui:define name="nome-tela">Arquivos Sincronizados</ui:define>
         <ui:define name="conteudo-tela">
             <h:form id="formListagemArquivo">
-                <p:dataTable var="file" value="#{arquivoMng.listaArquivos}">
-                    <p:column headerText="Código" width="50" styleClass="centralizar">
-                        <h:outputText value="#{file.codigo}"/>
-                    </p:column>
-                    <p:column headerText="Nome">
-                        <h:outputText value="#{file.nome}"/>
-                    </p:column>
-                    <p:column headerText="Tamanho">
-                        <h:outputText value="#{file.tamanho}"/>
-                    </p:column>
-                    <p:column headerText="Modificado em">
-                        <h:outputText value="#{formatador.formatarDataHora(file.dataHora)}"/>
-                    </p:column>
-                    <p:column headerText="Local Origem">
-                        <h:outputText value="#{file.caminhoOrigem}"/>
-                    </p:column>
-                    <p:column headerText="Total Linhas">
-                        <h:outputText value="#{file.qtdLinhas}"/>
-                    </p:column>
-                    <p:column headerText="Último Interno">
-                        <h:outputText value="#{file.ultimaLinhaLida}"/>
-                    </p:column>
-                    <p:column headerText="Recebido em">
-                        <h:outputText value="#{formatador.formatarDataHora(file.entradaDataHora)}"/>
-                    </p:column>
-                    
-                </p:dataTable>
+                <div id="topoListagemArquivo">
+                    <p:dataTable var="file" value="#{arquivoMng.listaArquivos}" emptyMessage="Não existem arquivos registrados." >
+                        <p:column headerText="Código" width="40" styleClass="centralizar">
+                            <h:outputText value="#{file.codigo}"/>
+                        </p:column>
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{file.nome}"/>
+                        </p:column>
+                        <p:column headerText="Linhas" width="60" styleClass="centralizar">
+                            <h:outputText value="#{file.qtdLinhas}"/>
+                        </p:column>
+                        <p:column headerText="Tamanho" width="70" styleClass="centralizar">
+                            <h:outputText value="#{formatador.formatarTamanhoArquivo(file.tamanho)}"/>
+                        </p:column>
+                        <p:column headerText="Modificado em" width="140" styleClass="centralizar">
+                            <h:outputText value="#{formatador.formatarDataHora(file.dataHora)}"/>
+                        </p:column>
+                        <p:column headerText="Recebido em" width="140" styleClass="centralizar">
+                            <h:outputText value="#{formatador.formatarDataHora(file.entradaDataHora)}"/>
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
             </h:form>
         </ui:define>
     </ui:decorate>

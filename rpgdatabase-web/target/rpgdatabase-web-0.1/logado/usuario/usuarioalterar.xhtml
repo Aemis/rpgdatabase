@@ -29,7 +29,7 @@
                     <p:selectBooleanButton onLabel="Sim" offLabel="Não" id="lblAtivo" value="#{usuarioMng.usuario.ativo}" style="width:6rem" />
                 </p:panelGrid>
                 <p:commandButton id="btnConfirmarUsuarioAlterar" action="#{usuarioMng.alterarUsuario()}" update="msgUsuarioAlterar formUsuarioAlterar" value="Confirmar" />
-                <p:commandButton id="btnCancelarUsuarioAlterar" action="#{usuarioMng.getPaginaListagem()}" update="formUsuarioAlterar" value="Cancelar" />
+                <p:commandButton id="btnCancelarUsuarioAlterar" action="#{usuarioMng.getPaginaListagem()}" value="Cancelar" />
                 <p:commandButton id="btnAlterarSenhaUsuario" action="#{usuarioMng.getPaginaAlterarSenha()}" update="formUsuarioAlterar" value="Alterar Senha"/>
             </h:form>
         </ui:define>

@@ -29,7 +29,7 @@
                     <p:password id="lblPass2" value="#{usuarioMng.password2}"  required="true" requiredMessage="A segunda senha é obrigatória!"/>
                     
                     <p:outputLabel for="lblDtEntrada" value="Data/Hora Entrada:"/>
-                    <p:inputText id="lblDtEntrada" value="#{formatador.formatarDataHora(usuarioMng.usuario.entrada)}" disabled="true"/>
+                    <p:inputText id="lblDtEntrada" value="#{usuarioMng.usuario.entrada}" disabled="true"/>
                     
                     <p:outputLabel for="lblAtivo" value="Ativo?"/>
                     <p:selectBooleanButton onLabel="Sim" offLabel="Não" id="lblAtivo" value="#{usuarioMng.usuario.ativo}" style="width:6rem" disabled="true"/>

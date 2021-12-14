@@ -8,6 +8,7 @@ package br.com.lacetecnologia.rpgdatabase.manager;
 import br.com.lacetecnologia.rpgdatabase.estrutura.Sessao;
 import br.com.lacetecnologia.rpgdatabase.fachada.ArquivoFachada;
 import br.com.lacetecnologia.rpgdatabase.modelo.Arquivo;
+import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -19,7 +20,7 @@ import javax.faces.bean.SessionScoped;
  */
 @SessionScoped
 @ManagedBean(name = "arquivoMng")
-public class ArquivoManager {
+public class ArquivoManager implements Serializable {
     @EJB
     private ArquivoFachada fachada;
     

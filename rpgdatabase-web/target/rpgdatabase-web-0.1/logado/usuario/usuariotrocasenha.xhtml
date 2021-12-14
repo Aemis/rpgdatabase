@@ -34,8 +34,8 @@
                     <p:outputLabel for="lblAtivo" value="Ativo?"/>
                     <p:selectBooleanButton onLabel="Sim" offLabel="Não" id="lblAtivo" value="#{usuarioMng.usuario.ativo}" style="width:6rem" disabled="true"/>
                 </p:panelGrid>
-                <p:commandButton id="btnConfirmarUsuarioTrocaSenha" action="#{usuarioMng.trocaSenha()}" update="msgUsuarioTrocaSenha formUsuarioTrocaSenha" value="Confirmar" />
-                <p:commandButton id="btnCancelarUsuarioTrocaSenha" action="#{usuarioMng.getPaginaListagem()}" value="Cancelar" />
+                <p:commandButton id="btnConfirmarUsuarioTrocaSenha" action="#{usuarioMng.trocaSenha()}" update="msgUsuarioTrocaSenha formUsuarioTrocaSenha" value="Confirmar" styleClass="cta"/>
+                <p:commandButton id="btnCancelarUsuarioTrocaSenha" action="#{usuarioMng.getPaginaAlterar()}" immediate="true" value="Cancelar" styleClass="cta"/>
             </h:form>
         </ui:define>
     </ui:decorate>
