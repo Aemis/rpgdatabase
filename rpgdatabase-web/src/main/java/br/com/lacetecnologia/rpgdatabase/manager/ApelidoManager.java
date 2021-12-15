@@ -28,7 +28,7 @@ public class ApelidoManager implements Serializable {
         return "/logado/apelido/apelidolista.xhtml";
     }
     
-    public List<Apelido> listaApelido(){
+    public List<Apelido> getListaApelido(){
         return fachada.buscarTodos(Sessao.getInstance().getUsuarioLogado().getCodigo());
     }
     

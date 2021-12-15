@@ -6,7 +6,7 @@
 package br.com.lacetecnologia.rpgdatabase.cli.comunicacao;
 
 import br.com.lacetecnologia.rpgdatabase.cli.ArquivoConfiguracao;
-import br.com.lacetecnologia.rpgdatabase.cli.ferramenta.ContadorDeLinhas;
+import br.com.lacetecnologia.rpgdatabase.cli.ferramenta.LeituraArquivoLog;
 import br.com.lacetecnologia.rpgdatabase.estrutura.ArquivoInserido;
 import br.com.lacetecnologia.rpgdatabase.estrutura.Erro;
 import br.com.lacetecnologia.rpgdatabase.estrutura.RegistroArquivo;
@@ -34,12 +34,19 @@ public class ArquivosCli {
     }
 
     public static ArquivoInserido cadastrarArquivo(File arquivo) throws IOException, Exception {
+        LeituraArquivoLog lal = new LeituraArquivoLog(arquivo);
+        
         RegistroArquivo novo = new RegistroArquivo();
         novo.setNome(arquivo.getName());
         novo.setCaminhoOrigem(arquivo.getAbsolutePath());
         novo.setDataHora(Formatador.formatarDateTimeParaString(new Date(arquivo.lastModified())));
         novo.setTamanho(BigInteger.valueOf(arquivo.length()));
-        novo.setQtdLinhas(ContadorDeLinhas.contarLinhasArquivo(arquivo));
+        novo.setQtdLinhas(lal.getLinhas());
+        novo.setNomeJogo(lal.getNomeJogo());
+        novo.setDataInicio(Formatador.formatarDateTimeParaString(lal.getInicio()));
+        novo.setDataFim(Formatador.formatarDateTimeParaString(lal.getFim()));
+        novo.setNomeLogico(lal.getNomeLogico());
+        novo.setApelidos(lal.getApelidos());
             
         WebTarget alvo = Cliente.criarConexao().target(ArquivoConfiguracao.getInstance().getConfiguracao().getServidorConexao());
         Response response = alvo.path("/arquivos").request().post(Entity.entity(novo, MediaType.APPLICATION_JSON));
@@ -50,6 +57,7 @@ public class ArquivosCli {
             Erro resultado = (Erro) response.readEntity(Erro.class);
             throw new Exception(resultado.getNome() + "."+ resultado.getDescricao());
         }
+   
     }
     
    

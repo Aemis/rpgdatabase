@@ -2,6 +2,7 @@
 /home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/manager/JogoManager.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/manager/UsuarioManager.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/resource/ValidadorResource.java
+/home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/resource/JogoResource.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/seguranca/ContextoSeguro.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/seguranca/AutenticacaoFiltro.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-web/src/main/java/br/com/lacetecnologia/rpgdatabase/resource/ArquivoResource.java

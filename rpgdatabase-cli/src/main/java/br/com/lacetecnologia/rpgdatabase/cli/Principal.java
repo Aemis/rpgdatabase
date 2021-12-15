@@ -1,10 +1,9 @@
 package br.com.lacetecnologia.rpgdatabase.cli;
 
 import br.com.lacetecnologia.rpgdatabase.cli.comunicacao.ArquivosCli;
-import br.com.lacetecnologia.rpgdatabase.cli.comunicacao.ParametroCli;
 import br.com.lacetecnologia.rpgdatabase.estrutura.RegistrosArquivos;
 import br.com.lacetecnologia.rpgdatabase.cli.ferramenta.Mensageria;
-import br.com.lacetecnologia.rpgdatabase.enumerados.ParametroNome;
+import br.com.lacetecnologia.rpgdatabase.cli.ferramenta.ParametroRegex;
 import br.com.lacetecnologia.rpgdatabase.estrutura.ArquivoInserido;
 import br.com.lacetecnologia.rpgdatabase.estrutura.RegistroArquivo;
 import br.com.lacetecnologia.rpgdatabase.ferramenta.Formatador;
@@ -31,12 +30,12 @@ import java.util.Date;
  */
 public class Principal {
     private RegistrosArquivos arquivosDoUsuario;
-    private String regexArquivoLog;
+    
     
     public Principal(){
         Mensageria.mostrarMensagemAbertura();
-        regexArquivoLog = ParametroCli.recuperaParametro(ParametroNome.REGEX_ARQUIVO_LOG).getValor();
-        if(regexArquivoLog == null){
+        
+        if(ParametroRegex.getInstance().getRegexArquivoLog() == null){
             Mensageria.mostrarMensagemErroNaTela(Principal.class.getName(), "Não foi possível encontrar um importante parâmetro para execução. Por favor verifique com o dev.(#1)");
             System.exit(0);
         }
@@ -57,6 +56,7 @@ public class Principal {
     public static void main(String[] args){
        Principal p = new Principal(); 
     }
+    
 
     private void verificarPastas() throws IOException, UnsupportedEncodingException, ParseException, Exception {
         Mensageria.mostrarMensagemNaTela("Verificando pastas...");
@@ -84,12 +84,15 @@ public class Principal {
                         Mensageria.mostrarMensagemNaTela("Identificado arquivo de log!");
                         if(!arquivoExisteNoServidor(arquivo)){
                             Mensageria.mostrarMensagemNaTela("Arquivo não existe no servidor! Cadastrando... ");
-                            ArquivoInserido ai= ArquivosCli.cadastrarArquivo(arquivo);
+                            ArquivoInserido ai = ArquivosCli.cadastrarArquivo(arquivo);
                             if(ai.getInseriu() && !ai.getArquivoExiste() ){
-                                Mensageria.mostrarMensagemNaTela("Novo arquivo: Arquivo cadastrado com sucesso!");
+                                Mensageria.mostrarMensagemNaTela("Arquivo cadastrado com sucesso!");
+                                
                             }else{
-                                if(!ai.getInseriu() && ai.getArquivoExiste())
+                                if(!ai.getInseriu() && ai.getArquivoExiste()){
                                     Mensageria.mostrarMensagemNaTela("Arquivo já existe no servidor.");    
+                                    //TODO verificar se a quantidade de linhas está correta e manda registrar
+                                }
                                 else
                                     Mensageria.mostrarMensagemNaTela("Houve um erro ao cadastrar o arquivo! Verifique no servidor.");
                             }
@@ -124,6 +127,6 @@ public class Principal {
             if(!texto.isEmpty()) break;
         }
         reader.close();
-        return texto.matches(regexArquivoLog);
+        return texto.matches(ParametroRegex.getInstance().getRegexArquivoLog());
     }
 }

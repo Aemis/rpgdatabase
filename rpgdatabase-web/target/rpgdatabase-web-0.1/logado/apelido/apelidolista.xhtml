@@ -7,15 +7,12 @@
         <ui:define name="nome-tela">Apelidos</ui:define>
         <ui:define name="conteudo-tela">
             <h:form id="formListagemApelido">
-                <p:dataTable var="apelido" value="#{apelidoMng.listaApelido}">
+                <p:dataTable var="apelido" value="#{apelidoMng.listaApelido}" emptyMessage="Não existem apelidos registrados.">
                     <p:column headerText="Código" width="50" styleClass="centralizar">
                         <h:outputText value="#{apelido.codigo}"/>
                     </p:column>
                     <p:column headerText="Nome">
                         <h:outputText value="#{apelido.nome}"/>
-                    </p:column>
-                    <p:column headerText="Início do Uso" width="150" styleClass="centralizar">
-                        <h:outputText value="#{formatador.formatarDataHora(apelido.inicioUso)}"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

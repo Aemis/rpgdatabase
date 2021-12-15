@@ -1,7 +1,8 @@
 /home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/Principal.java
+/home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/ferramenta/ParametroRegex.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/ferramenta/Mensageria.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/comunicacao/ParametroCli.java
-/home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/ferramenta/ContadorDeLinhas.java
+/home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/ferramenta/LeituraArquivoLog.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/ArquivoConfiguracao.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/comunicacao/ArquivosCli.java
 /home/leticiasena/Projetos/RPG/rpgdatabase-cli/src/main/java/br/com/lacetecnologia/rpgdatabase/cli/comunicacao/Cliente.java

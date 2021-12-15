@@ -7,7 +7,7 @@
         <ui:define name="nome-tela">Jogos</ui:define>
         <ui:define name="conteudo-tela">
             <h:form id="formListagemJogo">
-                <p:dataTable var="jogo" value="#{jogoMng.listaJogo}">
+                <p:dataTable var="jogo" value="#{jogoMng.listaJogo}" emptyMessage="Não existem jogos registrados.">
                     <p:column headerText="Código" width="50" styleClass="centralizar">
                         <h:outputText value="#{jogo.codigo}"/>
                     </p:column>
@@ -21,7 +21,7 @@
                     <p:column headerText="Fim" width="150" styleClass="centralizar">
                         <h:outputText value="#{formatador.formatarDataHora(jogo.ultimo)}"/>
                     </p:column>
-                    <p:column headerText="Finalizado?" width="50" styleClass="centralizar">
+                    <p:column headerText="Terminou?" width="70" styleClass="centralizar">
                         <h:outputText value="#{formatador.formatarBooleano(jogo.jogoestafinalizado)}"/>
                     </p:column>
                 </p:dataTable>

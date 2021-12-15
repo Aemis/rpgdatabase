@@ -28,7 +28,7 @@ public class JogoManager implements Serializable{
         return "/logado/jogo/jogolista.xhtml";
     }
     
-    public List<Jogo> listaJogo(){
+    public List<Jogo> getListaJogo(){
         return fachada.buscarTodos(Sessao.getInstance().getUsuarioLogado().getCodigo());
     }
 }
