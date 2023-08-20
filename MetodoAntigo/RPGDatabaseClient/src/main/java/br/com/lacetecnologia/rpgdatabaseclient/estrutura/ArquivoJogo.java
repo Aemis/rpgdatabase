@@ -1,11 +1,9 @@
 package br.com.lacetecnologia.rpgdatabaseclient.estrutura;
 
 import java.nio.file.attribute.FileTime;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 
 /**
- *
+ *  Arquivo de Jogo que é encontrado na pasta base
  * @author leticiasena
  */
 public class ArquivoJogo {
@@ -13,6 +11,8 @@ public class ArquivoJogo {
     private String caminhoArquivo;
     private FileTime dataCriacao;
     private FileTime dataUltimaModificacao;
+    private Long tamanho;
+    private Jogo jogo;
 
     public String getNomeJogo() {
         return nomeJogo;
@@ -45,12 +45,32 @@ public class ArquivoJogo {
     public void setDataUltimaModificacao(FileTime dataUltimaModificacao) {
         this.dataUltimaModificacao = dataUltimaModificacao;
     }
+
+    public Long getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(Long tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public Jogo getJogo() {
+        return jogo;
+    }
+
+    public void setJogo(Jogo jogo) {
+        this.jogo = jogo;
+    }
+    
+    
   
     public String toString(){
         
         return "Nome do Jogo:"+nomeJogo+";"+
                 "Caminho: "+caminhoArquivo + ";"+
                 "Criado em: "+dataCriacao.toString()+";"+
-                "Última modificação: "+ dataUltimaModificacao.toString()+";";
+                "Última modificação: "+ dataUltimaModificacao.toString()+";"+
+                "Tamanho: "+tamanho.toString()+
+                "Jogo: "+ jogo;
     }
 }
