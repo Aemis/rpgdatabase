@@ -25,6 +25,8 @@ public class Jogo implements Serializable{
         personagens = new ArrayList<String>();
     }
 
+    
+
     public String getNome() {
         return nome;
     }
@@ -74,8 +76,28 @@ public class Jogo implements Serializable{
     }
     
     public String toString(){
-        return "Jogo "+nome+" iniciado em "+
-                inicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss"))+
-                " e finalizado em "+fim.format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss"))+".";
+        String retorno = "Jogo "+nome+" iniciado em "+
+                ((inicio != null)?inicio.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")):"Sem data")+
+                " e finalizado em "+((fim != null)?fim.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")):"Sem data")+
+                " contendo " + this.sessoes.size() + " sessões e contando como jogadores: " ;
+                for(String nome:jogadores)
+                    retorno += nome +", ";
+                retorno += " ou seja, "+jogadores.size()+" jogadores no total.";
+        return retorno;
+    }
+
+    public void addJogadores(List<String> jogadores) {
+        boolean existe = false;
+        for(String jogador: jogadores){
+            for(String cadastrado:this.jogadores){
+                if(cadastrado.equalsIgnoreCase(jogador)){
+                    existe = true;
+                    break;
+                }
+            }
+            if(!existe){
+                this.jogadores.add(jogador);
+            }
+        }
     }
 }

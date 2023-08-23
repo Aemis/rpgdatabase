@@ -2,7 +2,9 @@ package br.com.lacetecnologia.rpgdatabaseclient.estrutura;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -10,32 +12,36 @@ import java.util.List;
  * @author leticiasena
  */
 public class Sessao implements Serializable{
-    private LocalDate inicio;
-    private LocalDate fim;
+    private LocalDateTime inicio;
+    private LocalDateTime fim;
     private List<String> jogadores;
     private List<Acao> fatos;
     
-    public Sessao(){}
+    public Sessao(){
+        jogadores = new ArrayList<String>();
+        fatos = new ArrayList<Acao>();
+    }
 
-    public LocalDate getInicio() {
+    public LocalDateTime getInicio() {
         return inicio;
     }
 
-    public void setInicio(LocalDate inicio) {
+    public void setInicio(LocalDateTime inicio) {
         this.inicio = inicio;
     }
 
-    public LocalDate getFim() {
+    public LocalDateTime getFim() {
         return fim;
     }
 
-    public void setFim(LocalDate fim) {
+    public void setFim(LocalDateTime fim) {
         this.fim = fim;
     }
 
     public List<String> getJogadores() {
         return jogadores;
     }
+    
 
     public void setJogadores(List<String> jogadores) {
         this.jogadores = jogadores;
@@ -47,6 +53,19 @@ public class Sessao implements Serializable{
 
     public void setFatos(List<Acao> fatos) {
         this.fatos = fatos;
+    }
+    
+    public void addJogador(String jogador){
+        boolean existe = false;
+        for(String cadastrado:this.jogadores){
+            if(cadastrado.equalsIgnoreCase(jogador)){
+                existe = true;
+                break;
+            }
+        }
+        if(!existe){
+            this.jogadores.add(jogador);
+        }
     }
     
     @Override

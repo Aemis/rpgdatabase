@@ -23,20 +23,18 @@ public class RPGDatabaseClient {
 
     public static void main(String[] args) {
         try {
-            LeitorLOG ll = new LeitorLOG("/home/leticiasena/RPG/TesteLogs/20151024#FutureIsNow.log");
-            
-//        File pastaBase = new File(PASTA_DOS_LOGS);
-//        if(pastaBase.isDirectory()){
-//            try {
-//                listarArquivos(pastaBase);
-//                leituraJogos();
-//            } catch (IOException ex) {
-//               System.err.println("OCORREU UM ERRO NA EXECUÇÃO: "+ex.getLocalizedMessage());
-//            }
-//        }else{
-//            System.err.println("A PASTA "+PASTA_DOS_LOGS+" NÃO É UMA PASTA VÁLIDA! VERIFIQUE!");
-//        }
-        } catch (IOException ex) {
+            File pastaBase = new File(PASTA_DOS_LOGS);
+            if(pastaBase.isDirectory()){
+                try {
+                    listarArquivos(pastaBase);
+                    leituraJogos();
+                } catch (IOException ex) {
+                   System.err.println("OCORREU UM ERRO NA EXECUÇÃO: "+ex.getLocalizedMessage());
+                }
+            }else{
+                System.err.println("A PASTA "+PASTA_DOS_LOGS+" NÃO É UMA PASTA VÁLIDA! VERIFIQUE!");
+            }
+        } catch (Exception ex) {
             Logger.getLogger(RPGDatabaseClient.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -64,10 +62,14 @@ public class RPGDatabaseClient {
         }
     }
 
-    private static void leituraJogos() {
+    private static void leituraJogos() throws IOException {
         for(ArquivoJogo arquivo: arquivosDeJogos){
             Jogo jogo = new Jogo(arquivo.getNomeJogo());
-//            LeitorLOG novo = new LeitorLOG();
+            try{
+                LeitorLOG novo = new LeitorLOG(arquivo.getCaminhoArquivo());
+            }catch(NullPointerException npe){
+                
+            }
             arquivo.setJogo(jogo);
         }
     }
